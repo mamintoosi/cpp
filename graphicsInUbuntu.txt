@@ -1,0 +1,30 @@
+download library
+
+https://askubuntu.com/questions/1143773/libgraph-1-0-2-makefile
+
+https://www.geeksforgeeks.org/add-graphics-h-c-library-gcc-compiler-linux/
+https://askubuntu.com/questions/1082722/unable-to-locate-package-libesd0-dev-on-ubuntu-18-04
+https://askubuntu.com/questions/942863/trying-to-install-libgraph
+
+sudo apt-get install build-essential
+
+sudo nano /etc/apt/sources.list
+A list will be opened in nano. Copy and paste these two lines at the end:
+
+deb http://us.archive.ubuntu.com/ubuntu/ xenial main universe
+deb-src http://us.archive.ubuntu.com/ubuntu/ xenial main universe
+Save and close using Ctrl + C. Then run:
+
+sudo apt-get update && sudo apt-get install libesd0-dev
+
+sudo apt-get update
+
+cd ~/Downloads
+wget http://download.savannah.gnu.org/releases/libgraph/libgraph-1.0.2.tar.gz
+cd libgraph-1.0.2.tar.gz
+tar -xf libgraph-1.0.2.tar.gz
+./configure
+./configure --disable-guile
+make
+sudo make install
+sudo cp /usr/local/lib/libgraph.* /usr/lib
